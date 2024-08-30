@@ -69,8 +69,10 @@ Run on every node, maintaining running pods and providing the Kubernetes runtime
         * There are two cgroup drivers available:
             * cgroupfs
             * systemd
-        `cgroupfs`
-        The cgroupfs driver is the default cgroup driver in the kubelet.
+        `cgroupfs`: The cgroupfs driver is the default cgroup driver in the kubelet. 
+        The cgroupfs driver is not recommended when systemd is the init system because systemd expects a single cgroup manager on the system
+        `systemd cgroup driver`: When systemd is chosen as the init system for a Linux distribution, the init process generates and consumes a root control group (cgroup) and acts as a cgroup manager.
+
 
 
 

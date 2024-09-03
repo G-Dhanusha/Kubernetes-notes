@@ -2,9 +2,9 @@ apiVersion: apps/v1
 kind: ReplicaSet
 metadata:
   name: nginxrs
-  labels: 
-    app: nginx
-spec:
+  labels:  # In replica set , the pod label should be match to  replica set label
+    app: nginx 
+spec: 
   minReadySeconds: 6
   replicas: 3
   selector: 
@@ -16,7 +16,7 @@ spec:
   template:
     metadata: 
       name: ngrcpod
-      labels: 
+      labels:  # In replica set , the pod label should be match to  replica set label
         app: nginx
     spec:
       containers:

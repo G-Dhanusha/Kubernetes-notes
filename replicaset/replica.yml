@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: nginxrs
+  labels: 
+    app: nginx
+spec:
+  minReadySeconds: 6
+  replicas: 3
+  selector: 
+    matchExpressions:
+      - key: app
+        operator: In
+        values:
+          - nginx
+  template:
+    metadata: 
+      name: ngrcpod
+      labels: 
+        app: nginx
+    spec:
+      containers:
+        - name: nginx
+          image: nginx:1.23
+          ports: 
+            - containerPort: 8080
+              protocol: TCP
+            
+          
+    
+      
+      
